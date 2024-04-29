@@ -1,0 +1,34 @@
+
+<div class = "header">
+    <h1>Fridge Contents</h1>
+</div>
+
+<div class = "contents">
+    <ul>
+       <% @fridge_contents.each_with_index do |item, index| %>
+       <div class="list_items">
+            <li>
+                <%= image_tag('circle.png') %>
+                <%= item %>
+                <%= button_to 'Add', increment_item_fridges_path(item_id: index), method: :post %>
+                <%= button_to 'Delete',delete_item_fridges_path(item_id: index), method: :post %>
+            </li>
+        </div>
+        <% end %>
+    </ul>
+</div>
+
+<script>
+function openPopup() {
+    var myWindow = window.open("", "MsgWindow", "width=200,height=100");
+    myWindow.document.write("<h1>Input your ingredient:</h1>");
+    myWindow.document.write('<form action="/submit-form" method="post"><input type="text" name="info" placeholder="Enter ingredient"><input type="submit" value="Submit"></form>');
+}
+</script>
+
+
+<div class = "buttons">
+    <button onclick="openPopup()"> Add Fridge Items </button>
+    <button type="button" id="current_recipies">Generate New Recipies</button>
+</div>
+

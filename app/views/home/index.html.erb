@@ -8,14 +8,13 @@
 </div>
 
 <div class = "recipies">
-    <img src="/images/recipe1.jpg">
-    <img src="/images/recipe2.jpg">
-    <img src="/images/recipe3.jpg">
+    <%= image_tag('recipe1.jpg') %>
+    <%= image_tag('recipe2.jpg') %>
+    <%= image_tag('recipe3.jpg') %>
 </div>
 
 <div class = "buttons">
     <button type="button" id="current_recipies">Current Recipies</button>
-
-    <button type="button" id="fridge_contents">Fridge Contents</button>
+    <%= link_to 'Fridge Contents', fridge_contents_path, class: 'btn', id: 'fridge_contents' %>
 </div>
 
